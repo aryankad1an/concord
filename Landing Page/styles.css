@@ -186,8 +186,10 @@ nav {
   font-weight: 500;
   transition: 0.3s;
 }
-
-
+/* adding lil login animation */
+.loginlink a:hover{
+  padding: 7px 11px;
+}
 .link a:hover {
   color: #fd5454;
 }
