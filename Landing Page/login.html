@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+        rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="styleslogin.css"/>
+  <title>Concord | Home</title>
+</head>
+<body>
+<header>
+  <nav class = "nav">
+    <div class="nav__logo"><a href="../index.html">Concord.</a></div>
+    <ul class="nav__links" id="nav-links">
+      <li class="link"><a href="../index.html#">Home</a></li>
+      <li class="link"><a href="../index.html#about">About</a></li>
+      <li class="link"><a href="../index.html#stats">Statistics</a></li>
+      <li class="link"><a href=""><x-sign>Pricing</x-sign></a></li>
+      <li class="loginlink"><a href="login.html">Login</a></li>
+    </ul>
+    <div class="nav__menu__btn" id="menu-btn">
+      <span><i class="ri-menu-line"></i></span>
+    </div>
+  </nav>
+
+</header>
+
+<section class="about" id="about">
+  <div class="section__container about__container">
+    <div class="about__grid">
+      <div class="about__content">
+        <h2 class="section__header">Your Gateway to Streamlined Management
+        </h2>
+        <p class="para">
+          At Concord, we believe in making organizational management as
+          straightforward as possible. Whether you're a seasoned professional
+          or just starting your managerial journey, our platform is designed
+          to empower you. Log in or register now to unlock a world of
+          possibilities for your business.
+        </p>
+        <br />
+      </div>
+      <div class="about__list">
+        <div class="login-wrap">
+          <div class="login-wrap-box">
+            <div class="login-title">
+              <h3>Login</h3>
+            </div>
+
+            <form>
+              <p>
+                <label for="email">Email address</label>
+                <input id="email" type="email" placeholder="name@example.com">
+              </p>
+              <p>
+              <div class="d-flex">
+                <label for="password">Password</label>
+                <a href="#">Lost password?</a>
+              </div>
+              <input name="password" type="password" placeholder="password">
+              </p>
+              <p>
+                <button class="btn-submit" type="submit">Sign in</button>
+              </p>
+            </form>
+            <p class="not-regis">Not registered? <a href="signup.html">Create account</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

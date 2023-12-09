@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Concord | Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./calendar/calendar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <!-- <div class="container">
+    <nav>
+      <ul>
+        <li><a href="#" class="logo">
+          <span class="nav-item">ConCord .</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-home"></i>
+          <span class="nav-item">Home</span>
+        </a></li>
+        <li><a href="">
+          <i class="fas fa-user"></i>
+          <span class="nav-item">Profile</span>
+        </a></li>
+        <li><a href="">
+          <i class="fas fa-calendar"></i>
+          <span class="nav-item">Calendar</span>
+        </a></li>
+        <li><a href="">
+          <i class="fas fa-chart-bar"></i>
+          <span class="nav-item">Analytics</span>
+        </a></li>
+        <li><a href="">
+            <i class="fas fa-house"></i>
+            <span class="nav-item">Clubs</span>
+          </a></li>
+        <li><a href="">
+          <i class="fas fa-tasks"></i>
+          <span class="nav-item">Tasks</span>
+        </a></li>
+        <li><a href="">
+            <i class="fas fa-message"></i>
+            <span class="nav-item">Forum</span>
+          </a></li>
+        <li><a href="">
+            <i class="fas fa-video"></i>
+            <span class="nav-item">Meetings</span>
+          </a></li>
+        <li><a href="">
+          <i class="fas fa-cog"></i>
+          <span class="nav-item">Settings</span>
+        </a></li>
+        
+        <li><a href="">
+          <i class="fas fa-question-circle"></i>
+          <span class="nav-item">Help</span>
+        </a></li>
+        <li><a href="" class="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Log out</span>
+        </a></li>
+      </ul>
+    </nav> -->
+
+    <section class="main">
+      <!-- <h1>Your Code Here</h1> -->
+      <!-- <iframe src="calendar/calendar.html" height="100%" width="100%" title="Iframe Example"></iframe> -->
+      <div class="container-calendar">
+        <div class="left">
+          <div class="calendar">
+            <div class="month">
+              <i class="fas fa-angle-left prev"></i>
+              <div class="date">december 2015</div>
+              <i class="fas fa-angle-right next"></i>
+            </div>
+            <div class="weekdays">
+              <div>Sun</div>
+              <div>Mon</div>
+              <div>Tue</div>
+              <div>Wed</div>
+              <div>Thu</div>
+              <div>Fri</div>
+              <div>Sat</div>
+            </div>
+            <div class="days"></div>
+            <div class="goto-today">
+              <div class="goto">
+                <input type="text" placeholder="mm/yyyy" class="date-input" />
+                <button class="goto-btn">Go</button>
+              </div>
+              <input type="button"class="returnHome" onclick="window.location.href = '../Dashboard/index.html';" value="Go Back"/>
+              <button class="today-btn">Today</button>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="today-date">
+            <div class="event-day">wed</div>
+            <div class="event-date">12th december 2022</div>
+          </div>
+          <div class="events"></div>
+          <div class="add-event-wrapper">
+            <div class="add-event-header">
+              <div class="title">Add Event</div>
+              <i class="fas fa-times close"></i>
+            </div>
+            <div class="add-event-body">
+              <div class="add-event-input">
+                <input type="text" placeholder="Event Name" class="event-name" />
+              </div>
+              <div class="add-event-input">
+                <input
+                  type="text"
+                  placeholder="Event Time From"
+                  class="event-time-from"
+                />
+              </div>
+              <div class="add-event-input">
+                <input
+                  type="text"
+                  placeholder="Event Time To"
+                  class="event-time-to"
+                />
+              </div>
+            </div>
+            <div class="add-event-footer">
+              <button class="add-event-btn">Add Event</button>
+            </div>
+          </div>
+        </div>
+        <button class="add-event">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+  
+  
+      <script src="./calendar/calendar.js"></script>
+    </section>
+  </div>
+</body>
+</html>

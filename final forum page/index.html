@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Concord | Forum</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Dark Theme Styles */
+        body {
+            background-color: #1f1f1f;
+            color: #ffffff;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+
+        .container {
+            background-color: #050505;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            margin-top: 20px;
+            background-color: rgb(44, 45, 45);
+        }
+
+        .card-title {
+            color: rgb(216, 144, 10);
+        }
+
+        .list-group-item {
+            background-color: #1f1f1f;
+        }
+
+        .list-group-item a {
+            color: #007bff;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .center-heading {
+            text-align: center;
+            color: rgb(199, 133, 10);
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .flex-item {
+            flex: 1;
+            margin: 10px;
+        }
+
+        p {
+            color: white;
+        }
+
+        .search-bar {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+
+        .thread-container {
+            margin-top: 20px;
+        }
+
+        .thread {
+            margin-top: 10px;
+            background-color: #2c2d2d;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .thread-title {
+            color: #007bff;
+        }
+
+        .thread-author {
+            color: #6c757d;
+        }
+
+        .post-thread-btn,
+        .post-reply-btn {
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .reply-container {
+            margin-top: 10px;
+            padding-left: 20px;
+            border-left: 2px solid #6c757d;
+        }
+
+        .reply {
+            margin-top: 10px;
+            background-color: #2c2d2d;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .reply-author {
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <section class="main">
+        <h2 class="center-heading">Welcome to the College Forum</h2>
+        <p>Discuss and collaborate on organizational matters related to college.</p>
+        <a href="../Dashboard/index.html">Back to Dashboard</a>
+
+        <!-- Search Bar -->
+        <form class="form-inline navbar-form float-right" id="searchForm">
+            <input class="form-control mr-sm-2 search-bar" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchThreads()">Search</button>
+        </form>
+
+        <!-- Forum Categories and Latest Discussions -->
+        <div class="flex-container">
+            <div class="flex-item">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Forum Categories</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a href="#">General Discussions</a></li>
+                            <li class="list-group-item"><a href="#">Academic Affairs</a></li>
+                            <li class="list-group-item"><a href="#">Student Life</a></li>
+                            <li class="list-group-item"><a href="#">Administrative Matters</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-item">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Latest Discussions</h5>
+                        <div class="thread-container" id="threadContainer">
+                            <!-- Threads will be displayed here dynamically -->
+                        </div>
+
+                        <!-- Form for posting new threads -->
+                        <div class="form-group">
+                            <label for="threadTitle">Thread Title:</label>
+                            <input type="text" class="form-control" id="threadTitle" required>
+                        </div>
+                        <button type="button" class="btn btn-primary post-thread-btn" onclick="postNewThread()">Post a New Thread</button>
+
+                        <!-- Form for posting replies -->
+                        <div class="form-group" id="replyForm" style="display: none;">
+                            <label for="replyContent">Reply:</label>
+                            <textarea class="form-control" id="replyContent" rows="3" required></textarea>
+                        </div>
+                        <button type="button" class="btn btn-primary post-reply-btn" onclick="postReply()">Post Reply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Sample thread data
+    var threads = [
+        { title: "How to improve campus facilities?", author: "John Doe", replies: 5 },
+        { title: "Upcoming event planning", author: "Jane Smith", replies: 8 }
+        // Add more threads as needed
+    ];
+
+    // Function to display threads
+    function displayThreads() {
+        var threadContainer = document.getElementById("threadContainer");
+        threadContainer.innerHTML = "";
+
+        threads.forEach(function (thread) {
+            var threadElement = document.createElement("div");
+            threadElement.className = "thread";
+            threadElement.innerHTML = `
+            <h6 class="thread-title"><a href="#">${thread.title}</a></h6>
+            <p class="thread-author">Posted by ${thread.author}</p>
+            <p>Replies: ${thread.replies}</p>
+            <div class="reply-container" id="replyContainer${threads.indexOf(thread)}"></div>
+            <button type="button" class="btn btn-primary post-reply-btn" onclick="toggleReplyForm(${threads.indexOf(thread)})">Reply</button>
+        `;
+
+            threadContainer.appendChild(threadElement);
+        });
+    }
+
+    // Function to post a new thread
+    function postNewThread() {
+        var threadTitle = document.getElementById("threadTitle").value;
+
+        threads.push({ title: threadTitle, author: "You", replies: 0 });
+        displayThreads();
+
+        document.getElementById("threadTitle").value = "";
+    }
+
+    // Function to toggle reply form visibility
+    function toggleReplyForm(index) {
+        var replyForm = document.getElementById("replyForm");
+        var replyContainer = document.getElementById(`replyContainer${index}`);
+
+        if (replyForm.style.display === "none") {
+            replyForm.style.display = "block";
+            replyContainer.innerHTML = ""; // Clear previous replies
+        } else {
+            replyForm.style.display = "none";
+        }
+    }
+
+    // Function to post a reply
+    function postReply() {
+        var replyContent = document.getElementById("replyContent").value;
+
+        // Assuming the reply is posted to the last thread for simplicity
+        threads[threads.length - 1].replies++;
+        displayThreads();
+
+        // Clear the reply form
+        document.getElementById("replyContent").value = "";
+        document.getElementById("replyForm").style.display = "none";
+    }
+
+    // Function to search threads
+    function searchThreads() {
+        var searchTerm = document.getElementById("searchInput").value.toLowerCase();
+
+        var filteredThreads = threads.filter(function (thread) {
+            return thread.title.toLowerCase().includes(searchTerm) || thread.author.toLowerCase().includes(searchTerm);
+        });
+
+        var threadContainer = document.getElementById("threadContainer");
+
+        if (filteredThreads.length > 0) {
+            threads = filteredThreads;
+            displayThreads();
+        } else {
+            threadContainer.innerHTML = "<p>No matching threads found.</p>";
+        }
+    }
+
+    // Initial display of threads
+    displayThreads();
+</script>
+</body>
+</html>

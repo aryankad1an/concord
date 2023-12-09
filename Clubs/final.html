@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+
+       
+        body {
+            color: rgba(254, 254, 254, 0.7);
+            font-family: "poppins", sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6em;
+            overflow-x: hidden;
+            justify-content:center;
+            align-items: center;
+            background-image: radial-gradient(circle, red, black, black);
+            padding: 0 35px;
+        }
+
+        h1 {
+            width: 100%;
+            margin: 5% auto;
+            text-align: center;
+            color: aliceblue;
+        }
+        h2{
+            width:100%;
+            margin-left: 10%;
+            margin-right: 10%;
+            text-align:centre;
+            color:aliceblue;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0 auto;
+        }
+
+        .card {
+            width: 500px;
+            height: 300px;
+            margin: 2% 0;
+            margin-left:50px;
+            margin-right:50px;
+            box-shadow: 8px 8px grey, 10px 10px grey, 15px 15px grey;
+            transition:all 0.3s;
+            justify-content:flex-start;
+            display:flex;
+            flex-direction: row;
+
+        
+        }
+        .swiper-container{
+          position:relative;
+          margin:0 auto;
+          width:100%;
+        }
+
+        .swiper{
+          margin:0 auto;
+          cursor:grab;
+        }
+        
+        .swiper-slide{
+          display:flex;
+          justify-content:center;
+          align-items:center;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev{
+          width:30px;
+          height:30px;
+          border-radius:50%;
+          background:#fff;
+          box-shadow:0 0 10px #ccc;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after{
+          font-size:10px;
+          font-weight:bold;
+          color:#000;
+        }
+
+        .swiper-button-next:hover{
+          transform:scale(1.2) translateX(80%);
+
+        }
+
+        .swiper-button-prev:hover{
+          transform:scale(1.2) translateX(-80%);
+
+        }
+        .swiper-button-next{
+          transform:translateX(100%);
+        }
+
+        .swiper-button-prev{
+          transform:translateX(-100%);
+        }
+
+        .swiper-pagination{
+          transform:translateY(200%);
+        }
+
+        .swiper-pagination-bullet{
+          background:#fff;
+          width:15px;
+          height:15px;
+        }
+
+
+
+        .card:hover{
+          transform:scale(1.15);
+
+        }
+
+        .card img {
+            height: 200px;
+            width: 250px;
+            object-fit: cover;
+        }
+        .container{
+          width:100%;
+          height:90vh;
+          display:flex;
+          flex-direction:row;
+          align-items: center;
+          overflow: hidden;
+        }
+
+        .imgcontainer{
+          width:100%;
+          height:600px;
+          position:absolute;
+          left:0;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          transition:1s;
+        }
+
+        .slide_div{
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          margin:0 30px 0 30px;
+        }
+
+        .img{
+          position:relative;
+          height:370px;
+          width: 240px;
+          filter:saturate(10%);
+          transition:0.7s;
+          /* background-color:rgba(0,0,0,0.4); */
+          border-radius:20px;
+
+        }
+
+        .button{
+          position:absolute;
+          width:240px;
+          height:370px;
+          transition:0.7s;
+          background-color:rgba(0,0,0,0.4);
+          border-radius:20px;
+        }
+         .button:hover{
+          background-color:rgba(0,0,0,0.2);
+         }
+        
+         #slider1:target ~ .imgcontainer #img1,
+         #slider1:target ~ .imgcontainer #button{
+          width:390px;
+          height:600px;
+          /* background-color:transparent; */
+          filter:saturate(100%);
+         }
+
+         #slider2:target ~ .imgcontainer #img2,
+         #slider2:target ~ .imgcontainer #button{
+          width:390px;
+          height:600px;
+          background-color:transparent;
+          filter:saturate(100%);
+         }
+
+         #slider3:target ~ .imgcontainer #img3,
+         #slider3:target ~ .imgcontainer #button{
+          width:390px;
+          height:600px;
+          background-color:transparent;
+          filter:saturate(100%);
+         }
+
+         #slider4:target ~ .imgcontainer #img4,
+         #slider4:target ~ .imgcontainer #button{
+          width:390px;
+          height:600px;
+          background-color:transparent;
+          filter:saturate(100%);
+         }
+
+         #slider5:target ~ .imgcontainer #img5,
+         #slider5:target ~ .imgcontainer #button{
+          width:390px;
+          height:600px;
+          background-color:transparent;
+          filter:saturate(100%);
+         }
+
+         #slider6:target ~ .imgcontainer #img6,
+         #slider6:target ~ .imgcontainer #button{
+          width:390px;
+          height:600px;
+          background-color:transparent;
+          filter:saturate(100%);
+         }
+
+         #slider7:target ~ .imgcontainer #img7,
+         #slider7:target ~ .imgcontainer #button{
+          width:390px;
+          height:600px;
+          background-color:transparent;
+          filter:saturate(100%);
+         }
+    
+
+
+    </style>
+</head>
+<body class="body">
+<!-- 
+<h1>Clubs of IIIT Lucknow</h1>
+<h1>Cultural clubs</h1> -->
+
+
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../Dashboard/index.html">
+        <!-- <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"> -->
+        Dashboard
+      </a>
+    </div>
+  </nav>
+
+
+  <div class=" swiper-container">
+    <div class="swiper myswiper">
+      <div class="swipper-wrapper">
+        <div class="swiper-slide">
+
+    <div class="card br-light">
+
+        <img class="card-img-top" src="https://tse4.mm.bing.net/th?id=OIP.vsEm0FgPlAaUt46N4j8VmgHaHa&pid=Api&P=0&h=220" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Crotonia</h5>
+            <p class="card-text">Crotonia is the literary society of IIIT Lucknow. We intend to bring out content which would appease to the reader mind.</p>
+            <a href="#" class="btn btn-primary">Know more</a>
+        </div>
+    </div>
+  </div>
+
+  <div class="swiper-slide">
+
+    <div class="card br-light">
+        <img class="card-img-top" src="https://tse3.mm.bing.net/th?id=OIP.MH7Uid-wliBzj0H2hiNbfAHaFj&pid=Api&P=0&h=220" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Zephyr</h5>
+            <p class="card-text">Zephyr is the dance society of IIIT Lucknow. To be fond of dancing was a certain step towards falling in love.</p>
+            <a href="#" class="btn btn-primary">Know more</a>
+        </div>
+    </div>
+    </div>
+
+    
+    <div class="swiper-slide">
+    <div class="card br-light ">
+        <img class="card-img-top" src="https://tse1.mm.bing.net/th?id=OIP.n0wRKhrc6Xjgl8DNOGCBswHaHZ&pid=Api&P=0&h=220" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Estrella</h5>
+          <p class="card-text">Estrella is a music society of IIIT Lucknow.“Music, once admitted to the soul, becomes a sort of spirit, and never dies.”</p>
+          <a href="#" class="btn btn-primary">Know more</a>
+        </div>
+      </div>
+      </div>
+
+      <div class="swiper-slide">
+      <div class="card br-light">
+        <img class="card-img-top" src="https://tse2.mm.bing.net/th?id=OIP.-y1ElPY8RgloBfP_3IrlBwHaFu&pid=Api&P=0&h=220" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Utkrisht</h5>
+          <p class="card-text">Utkrisht is the fine-art society of IIIT Lucknow.“Art should be something that liberates your soul and encourages people to go further.” </p>
+          <a href="#" class="btn btn-primary">Know more</a>
+        </div>
+      </div>
+      </div>
+
+      <div class="swiper-slide">
+      <div class="card br-light">
+          <img class="card-img-top" src="https://img.discogs.com/1QGhNLUrgoF8D1IT28nDUZmjSY8=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/L-475231-1564559676-2448.jpeg.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Afterdark</h5>
+            <p class="card-text">Afterdark is the photography club of IIIT Lucknow.Photographs are a way of imprisoning reality…one can’t possess the present but one can possess the past..</p>
+            <a href="#" class="btn btn-primary">Know more</a>
+          </div>
+        </div>
+        </div>
+
+
+        
+
+        <div class="swiper-slide">
+        <div class="card br-light">
+          <img class="card-img-top" src="https://yt3.ggpht.com/a/AGF-l7_714JKkZ-pDJOHGRbJ4pYm6KZ8ObSoft2xMQ=s900-c-k-c0xffffffff-no-rj-mo" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Goonj</h5>
+            <p class="card-text">Goonj is a drama society of IIIT Lucknow.“I want to make the audience laugh and cry within ten seconds, to show just how close those emotions are.”</p>
+            <a href="#" class="btn btn-primary">Know more</a>
+          </div>
+        </div>
+        </div>
+
+
+ <div class="swiper-slide">
+<div class="card br-light">
+    <img class="card-img-top" src="https://tse1.mm.bing.net/th?id=OIP.8dc136cRLNy3eSDigteuMwHaHa&pid=Api&P=0&h=220" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Axios</h5>
+      <p class="card-text">Axios is the technical club of IIIT Lucknow.</p>
+      <a href="#" class="btn btn-primary">Know more</a>
+    </div>
+  </div>
+  </div>
+
+
+  <div class="swiper-slide">
+  <div class="card br-light">
+    <img class="card-img-top" src="https://tse2.mm.bing.net/th?id=OIP.uVnT7iNkdbKzwUZ4LCQXuQHaHa&pid=Api&P=0&h=220" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">GDSC</h5>
+      <p class="card-text">Google Developer Student Club is Technical Developer club for students of IIIT Lucknow. </p>
+      <a href="#" class="btn btn-primary">Know more</a>
+    </div>
+  </div>
+  </div>
+
+  <div class="swiper-slide">
+  <div class="card br-light ">
+    <img class="card-img-top" src="https://tse1.mm.bing.net/th?id=OIP.w-ss2ytOleC0Tv9mTHecuQAAAA&pid=Api&P=0&h=220"  alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">E-Cell</h5>
+      <p class="card-text">Enterpreneurship Cell is non-profit organisation run by students of IIIT Lucknow.E-Cell aim to promote inventive and creative solutions.</p>
+      <a href="#" class="btn btn-primary">Know more</a>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+
+<div class="swiper-pagination"></div>
+<div class="swiper-button-prev"></div>
+<div class="swiper-button-next"></div>
+<div class="swiper-scrollbar"></div>
+</div>
+
+
+
+<div class="container">
+  <span class="slider" id="slider1"></span>
+  <span class="slider" id="slider2"></span>
+  <span class="slider" id="slider3"></span>
+  <span class="slider" id="slider4"></span>
+  <span class="slider" id="slider5"></span>
+  <span class="slider" id="slider6"></span>
+  <span class="slider" id="slider7"></span>
+ <div class="imgcontainer"></div>
+
+ <div class="slide_div" id="slide_1">
+  <img src="https://tse4.mm.bing.net/th?id=OIP.qY2z7O9EKifTeoVG48ptBAHaEK&pid=Api&P=0&h=220" alt="" class="img" id="img1">
+  <a href="#slider1" class="button" id="button1"></a>
+ </div>
+
+ <div class="slide_div" id="slide_2">
+  <img src="https://tse3.mm.bing.net/th?id=OIP.9ZHJ4TPS1GvSIMSadopAsgHaE7&pid=Api&P=0&h=220" alt="" class="img" id="img2">
+  <a href="#slider2" class="button" id="button1"></a>
+ </div>
+
+ <div class="slide_div" id="slide_3">
+  <img src="https://i.ytimg.com/vi/28jTUWIfT-Y/maxresdefault.jpg" alt="" class="img" id="img3">
+  <a href="#slider3" class="button" id="button1"></a>
+ </div>
+
+ <div class="slide_div" id="slide_4">
+  <img src="https://tse3.mm.bing.net/th?id=OIP.rvh8HMkSpL_fuWaeQogi8AHaEK&pid=Api&P=0&h=220" alt="" class="img" id="img4">
+  <a href="#slider4" class="button" id="button1"></a>
+ </div>
+
+ <div class="slide_div" id="slide_5">
+  <img src="https://tse3.mm.bing.net/th?id=OIP.njEiDVeSWCeXbH2fFkiV1gHaEK&pid=Api&P=0&h=220" alt="" class="img" id="img5">
+  <a href="#slider5" class="button" id="button1"></a>
+ </div>
+
+ <div class="slide_div" id="slide_6">
+  <img src="https://tse2.mm.bing.net/th?id=OIP.mA0s9m9xFxq1W1qKcAYJ9QHaE8&pid=Api&P=0&h=220" alt="" class="img" id="img6">
+  <a href="#slider6" class="button" id="button1"></a>
+ </div>
+
+ <div class="slide_div" id="slide_7">
+  <img src="https://tse3.mm.bing.net/th?id=OIP.i1Q6QmfdDMevNFGKjE4rHwHaEK&pid=Api&P=0&h=220" alt="" class="img" id="img7">
+  <a href="#slider7" class="button" id="button1"></a>
+ </div>
+
+</div>
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
